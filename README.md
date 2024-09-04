@@ -5,4 +5,5 @@ This project stores [Plugins](https://github.com/ChatGPTNextWeb/ChatGPT-Next-Web
 ## Plugins
 
 - [WolframAlpha plugin](./plugins/wolframalpha)
+- [ArxivSearch](./plugins/arxivsearch)
 

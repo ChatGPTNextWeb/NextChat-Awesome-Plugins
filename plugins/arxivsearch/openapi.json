@@ -1,0 +1,68 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "arxiv search",
+    "description": "Run Arxiv search and get the article information.",
+    "version": "v1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://export.arxiv.org"
+    }
+  ],
+  "paths": {
+    "/api/query": {
+      "get": {
+        "operationId": "ArxivSearch",
+        "description": "Run Arxiv search and get the article information.",
+        "deprecated": false,
+        "parameters": [
+          {
+            "name": "search_query",
+            "in": "query",
+            "required": true,
+            "description": "same as the search_query parameter rules of the arxiv API.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "sortBy",
+            "in": "query",
+            "description": "can be `relevance`, `lastUpdatedDate`, `submittedDate`.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "sortOrder",
+            "in": "query",
+            "description": "can be either `ascending` or `descending`.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "start",
+            "in": "query",
+            "description": "the index of the first returned result.",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "max_results",
+            "in": "query",
+            "description": "the number of results returned by the query.",
+            "schema": {
+              "type": "number"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "components": {
+    "schemas": {}
+  }
+}
