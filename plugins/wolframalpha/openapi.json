@@ -1,0 +1,36 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "WolframAlpha",
+    "description": "A wrapper around Wolfram Alpha. Useful for when you need to answer questions about Math, Science, Technology, Culture, Society and Everyday Life. Input should be a search query. If the result contains an image link, use the markdown syntax to return the image.",
+    "version": "v1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://www.wolframalpha.com"
+    }
+  ],
+  "paths": {
+    "/api/v1/llm-api": {
+      "get": {
+        "operationId": "Calculate",
+        "description": "A wrapper around Wolfram Alpha. Useful for when you need to answer questions about Math, Science, Technology, Culture, Society and Everyday Life. Input should be a search query. If the result contains an image link, use the markdown syntax to return the image.",
+        "deprecated": false,
+        "parameters": [
+          {
+            "name": "input",
+            "in": "query",
+            "required": true,
+            "description": "questions about Math, Science, Technology, Culture, Society and Everyday Life",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "components": {
+    "schemas": {}
+  }
+}
