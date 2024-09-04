@@ -1,0 +1,79 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "FastGPT",
+    "description": "FastGPT 是一个基于 LLM 大语言模型的知识库问答系统，提供开箱即用的数据处理、模型调用等能力。同时可以通过 Flow 可视化进行工作流编排，从而实现复杂的问答场景！",
+    "version": "v1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://api.fastgpt.in"
+    }
+  ],
+  "paths": {
+    "/api/core/dataset/list": {
+      "post": {
+        "operationId": "GetDatasetList",
+        "description": "Get Dataset list with `id`, `name` and other info",
+        "deprecated": false,
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "parentId": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/core/dataset/searchTest": {
+      "post": {
+        "operationId": "SearchFromDatasetById",
+        "description": "search chunks from dataset by `datesetId`",
+        "deprecated": false,"requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["datasetId", "text"],
+                "properties": {
+                  "datasetId": {
+                    "type": "string",
+                    "description": "id for dataset, can query from `GetDatasetList`"
+                  },
+                  "text": {
+                    "type": "string",
+                    "description": "keyword to query from dataset"
+                  },
+                  "limit": {
+                    "type": "number",
+                    "description": "limit for response data."
+                  },
+                  "searchMode": {
+                    "type": "string",
+                    "description": "can be `embedding`"
+                  },
+                  "usingReRank": {
+                    "type": "boolean",
+                    "description": "can be `false`"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {}
+  }
+}

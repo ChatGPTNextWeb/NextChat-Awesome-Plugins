@@ -9,4 +9,5 @@ This project stores [Plugins](https://github.com/ChatGPTNextWeb/ChatGPT-Next-Web
 - [DuckDuckGoLiteSearch](./plugins/duckduckgolite)
 - [gapier](./plugins/gapier)
 - [Webpilot](./plugins/webpilot)
+- [FastGPT](./plugins/fastgpt)
 
