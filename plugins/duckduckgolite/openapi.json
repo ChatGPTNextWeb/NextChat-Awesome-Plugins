@@ -1,0 +1,76 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "duckduckgo lite",
+    "description": "a search engine. useful for when you need to answer questions about current events. input should be a search query.",
+    "version": "v1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://lite.duckduckgo.com"
+    }
+  ],
+  "paths": {
+    "/lite/": {
+      "post": {
+        "operationId": "DuckDuckGoLiteSearch",
+        "description": "a search engine. useful for when you need to answer questions about current events. input should be a search query.",
+        "deprecated": false,
+        "parameters": [
+          {
+            "name": "q",
+            "in": "query",
+            "required": true,
+            "description": "keywords for query.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "s",
+            "in": "query",
+            "description": "can be `0`",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "o",
+            "in": "query",
+            "description": "can be `json`",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "api",
+            "in": "query",
+            "description": "can be `d.js`",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "kl",
+            "in": "query",
+            "description": "wt-wt, us-en, uk-en, ru-ru, etc. Defaults to `wt-wt`.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "bing_market",
+            "in": "query",
+            "description": "wt-wt, us-en, uk-en, ru-ru, etc. Defaults to `wt-wt`.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "components": {
+    "schemas": {}
+  }
+}
