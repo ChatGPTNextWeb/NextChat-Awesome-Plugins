@@ -17,4 +17,5 @@ This project stores [Plugins](https://github.com/ChatGPTNextWeb/ChatGPT-Next-Web
 - [gapier](./plugins/gapier)
 - [Webpilot](./plugins/webpilot)
 - [FastGPT](./plugins/fastgpt)
+- [NPM Registry Search API](./plugins/npmsearch)
 

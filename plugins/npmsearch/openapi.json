@@ -1,0 +1,214 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "NPM Registry Search API",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://registry.npmjs.org"
+    }
+  ],
+  "paths": {
+    "/-/v1/search": {
+      "get": {
+        "operationId": "searchPackages",
+        "x-openai-isConsequential": false,
+        "summary": "Search for packages in the NPM registry",
+        "parameters": [
+          {
+            "name": "text",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "description": "Full-text search to apply"
+          },
+          {
+            "name": "size",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            },
+            "description": "Number of results to return"
+          },
+          {
+            "name": "from",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            },
+            "description": "Offset to return results from"
+          },
+          {
+            "name": "quality",
+            "in": "query",
+            "schema": {
+              "type": "number",
+              "format": "float"
+            },
+            "description": "Effect of quality on search results"
+          },
+          {
+            "name": "popularity",
+            "in": "query",
+            "schema": {
+              "type": "number",
+              "format": "float"
+            },
+            "description": "Effect of popularity on search results"
+          },
+          {
+            "name": "maintenance",
+            "in": "query",
+            "schema": {
+              "type": "number",
+              "format": "float"
+            },
+            "description": "Effect of maintenance on search results"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "objects": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "package": {
+                            "type": "object",
+                            "properties": {
+                              "name": {
+                                "type": "string"
+                              },
+                              "version": {
+                                "type": "string"
+                              },
+                              "description": {
+                                "type": "string"
+                              },
+                              "keywords": {
+                                "type": "array",
+                                "items": {
+                                  "type": "string"
+                                }
+                              },
+                              "date": {
+                                "type": "string",
+                                "format": "date-time"
+                              },
+                              "links": {
+                                "type": "object",
+                                "properties": {
+                                  "npm": {
+                                    "type": "string",
+                                    "format": "uri"
+                                  },
+                                  "homepage": {
+                                    "type": "string",
+                                    "format": "uri"
+                                  },
+                                  "repository": {
+                                    "type": "string",
+                                    "format": "uri"
+                                  },
+                                  "bugs": {
+                                    "type": "string",
+                                    "format": "uri"
+                                  }
+                                }
+                              },
+                              "publisher": {
+                                "type": "object",
+                                "properties": {
+                                  "username": {
+                                    "type": "string"
+                                  },
+                                  "email": {
+                                    "type": "string",
+                                    "format": "email"
+                                  }
+                                }
+                              },
+                              "maintainers": {
+                                "type": "array",
+                                "items": {
+                                  "type": "object",
+                                  "properties": {
+                                    "username": {
+                                      "type": "string"
+                                    },
+                                    "email": {
+                                      "type": "string",
+                                      "format": "email"
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "total": {
+                      "type": "integer"
+                    },
+                    "time": {
+                      "type": "string",
+                      "format": "date-time"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request"
+          }
+        }
+      }
+    },
+    "/{packageName}/latest": {
+      "get": {
+        "operationId": "getPackageDetails",
+        "summary": "Get details of a specific package",
+        "parameters": [
+          {
+            "name": "packageName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "The name of the package"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "text/html": {
+                "schema": {
+                  "type": "string",
+                  "description": "HTML content of the package details"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request"
+          },
+          "404": {
+            "description": "Package not found"
+          }
+        }
+      }
+    }
+  }
+}
