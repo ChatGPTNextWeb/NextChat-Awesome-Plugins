@@ -1,0 +1,46 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "CodeInterpreter",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://code.leez.tech"
+    }
+  ],
+  "paths": {
+    "/runcode": {
+      "post": {
+        "operationId": "CodeInterpreter",
+        "x-openai-isConsequential": false,
+        "summary": "Run a given Python program and return the output.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["code", "languageType", "variables"],
+                "properties": {
+                  "code": {
+                    "type": "string",
+                    "description": "The Python code to execute"
+                  },
+                  "languageType": {
+                    "type": "string",
+                    "description": "value is `python`"
+                  },
+                  "variables": {
+                    "type": "object",
+                    "description": "value is empty dict: `{}`"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
