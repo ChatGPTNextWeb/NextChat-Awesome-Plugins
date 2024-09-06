@@ -19,5 +19,5 @@ This project stores [Plugins](https://github.com/ChatGPTNextWeb/ChatGPT-Next-Web
 - [Webpilot](./plugins/webpilot)
 - [FastGPT](./plugins/fastgpt)
 - [NPM Registry Search API](./plugins/npmsearch)
-- [CodeInterpreter](./plugins/codeinterpreterapi) see: [leezhuuuuu/Code-Interpreter-Api](https://github.com/leezhuuuuu/Code-Interpreter-Api)
+- [CodeInterpreter](./plugins/codeinterpreterapi) from: [leezhuuuuu/Code-Interpreter-Api](https://github.com/leezhuuuuu/Code-Interpreter-Api)
 
