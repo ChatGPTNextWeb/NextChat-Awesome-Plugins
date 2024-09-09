@@ -12,7 +12,9 @@
 ## Operations
 
 1. FluxPro
-> FLUX.1 [pro], next generation text-to-image model.
+2. FluxDev
+3. FluxSchnell
+4. FluxDevImageToImage
 
 
 ## Authentication
