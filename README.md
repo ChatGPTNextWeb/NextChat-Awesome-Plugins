@@ -12,6 +12,7 @@ This project stores [Plugins](https://github.com/ChatGPTNextWeb/ChatGPT-Next-Web
 ## Plugins
 
 - [Dalle3](./plugins/dalle)
+- [FluxPro](./plugins/flux)
 - [WolframAlpha](./plugins/wolframalpha)
 - [ArxivSearch](./plugins/arxivsearch)
 - [DuckDuckGoLiteSearch](./plugins/duckduckgolite)

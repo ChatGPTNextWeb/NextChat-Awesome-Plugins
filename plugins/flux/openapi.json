@@ -1,0 +1,61 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Flux Pro",
+    "description": "The pro version of FLUX.1, served in partnership with BFL",
+    "version": "v1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://fal.run"
+    }
+  ],
+  "paths": {
+    "/fal-ai/flux-pro": {
+      "post": {
+        "operationId": "FluxPro",
+        "description": "FLUX.1 [pro], next generation text-to-image model.",
+        "deprecated": false,
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["prompt", "image_size", "num_inference_steps", "guidance_scale"],
+                "properties": {
+                  "prompt": {
+                    "type": "string",
+                    "description": "The prompt to generate an image from."
+                  },
+                  "image_size": {
+                    "type": "string",
+                    "description": "The size of the generated image. Default value: `landscape_4_3`. Possible enum values: `square_hd`, `square`, `portrait_4_3`, `portrait_16_9`, `landscape_4_3`, `landscape_16_9`."
+                  },
+                  "num_inference_steps": {
+                    "type": "integer",
+                    "description": "The number of inference steps to perform. Default value: 28"
+                  },
+                  "seed": {
+                    "type": "integer",
+                    "description": "The same seed and the same prompt given to the same version of the model will output the same image every time."
+                  },
+                  "guidance_scale": {
+                    "type": "number",
+                    "description": "The CFG (Classifier Free Guidance) scale is a measure of how close you want the model to stick to your prompt when looking for a related image to show you. Default value: 3.5"
+                  },
+                  "num_images": {
+                    "type": "integer",
+                    "description": "The number of images to generate. Default value: 1"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {}
+  }
+}
