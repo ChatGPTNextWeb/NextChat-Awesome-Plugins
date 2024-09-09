@@ -21,4 +21,5 @@ This project stores [Plugins](https://github.com/ChatGPTNextWeb/ChatGPT-Next-Web
 - [FastGPT](./plugins/fastgpt)
 - [NPM Registry Search API](./plugins/npmsearch)
 - [CodeInterpreter](./plugins/codeinterpreterapi) from: [leezhuuuuu/Code-Interpreter-Api](https://github.com/leezhuuuuu/Code-Interpreter-Api)
+- [Chat PDF](./plugins/chatpdf) from: [PDF AI Reader Chat (4.1 ★)](https://chatgpt.com/g/g-oMM2c1bD3)
 
