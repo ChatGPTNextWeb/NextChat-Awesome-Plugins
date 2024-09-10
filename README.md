@@ -11,15 +11,17 @@ This project stores [Plugins](https://github.com/ChatGPTNextWeb/ChatGPT-Next-Web
 
 ## Plugins
 
-- [Dalle3](./plugins/dalle)
-- [FluxPro](./plugins/flux)
-- [WolframAlpha](./plugins/wolframalpha)
-- [ArxivSearch](./plugins/arxivsearch)
-- [DuckDuckGoLiteSearch](./plugins/duckduckgolite)
-- [gapier](./plugins/gapier)
-- [Webpilot](./plugins/webpilot)
-- [FastGPT](./plugins/fastgpt)
-- [NPM Registry Search API](./plugins/npmsearch)
-- [CodeInterpreter](./plugins/codeinterpreterapi) from: [leezhuuuuu/Code-Interpreter-Api](https://github.com/leezhuuuuu/Code-Interpreter-Api)
-- [Chat PDF](./plugins/chatpdf) from: [PDF AI Reader Chat (4.1 ★)](https://chatgpt.com/g/g-oMM2c1bD3)
+| Name | Authentication | Description |
+| ---- | --- | ----------------------------- |
+| [Dalle3](./plugins/dalle) | bearer | openai's dall-e image generator|
+| [FluxPro](./plugins/flux) | custom | The pro version of FLUX.1, served in partnership with BFL |
+| [WolframAlpha](./plugins/wolframalpha) | custom | A wrapper around Wolfram Alpha |
+| [ArxivSearch](./plugins/arxivsearch) | - | Run Arxiv search and get the article information |
+| [DuckDuckGoLiteSearch](./plugins/duckduckgolite) | - | a search engine |
+| [gapier](./plugins/gapier) | bearer | A free exclusive GPTs Actions API provided by gapier.com |
+| [Webpilot](./plugins/webpilot) | custom | from: https://www.webpilot.ai |
+| [FastGPT](./plugins/fastgpt) | bearer | |
+| [NPM Registry Search API](./plugins/npmsearch) | - | Search for packages in the NPM registry |
+| [CodeInterpreter](./plugins/codeinterpreterapi) | - | from: [leezhuuuuu/Code-Interpreter-Api](https://github.com/leezhuuuuu/Code-Interpreter-Api) |
+| [Chat PDF](./plugins/chatpdf) | - | from: [PDF AI Reader Chat (4.1 ★)](https://chatgpt.com/g/g-oMM2c1bD3) |
 
