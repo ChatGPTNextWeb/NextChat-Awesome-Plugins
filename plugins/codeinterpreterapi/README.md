@@ -18,7 +18,9 @@ https://github.com/leezhuuuuu/Code-Interpreter-Api
 
 ## Authentication
 
+```
 type: none
+```
 
 ## Preview
 

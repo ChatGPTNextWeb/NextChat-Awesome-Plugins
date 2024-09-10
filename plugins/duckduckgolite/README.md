@@ -15,7 +15,9 @@
 > `POST` /lite/
 
 ## Authentication
+```
 type: none
+```
 
 ## Preview
 

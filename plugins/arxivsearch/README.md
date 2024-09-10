@@ -16,7 +16,9 @@
 
 ## Authentication
 
+```
 type: none
+```
 
 ![Authentication](./authentication.png)
 

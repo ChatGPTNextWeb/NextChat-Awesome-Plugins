@@ -18,7 +18,9 @@
 
 ## Authentication
 
+```
 type: none
+```
 
 ## Preview
 

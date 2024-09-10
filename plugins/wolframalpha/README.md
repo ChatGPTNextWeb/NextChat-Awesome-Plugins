@@ -16,9 +16,11 @@
 
 ## Authentication
 
+```
 type: custom
 location: query
 value: appid=`xxx`
+```
 
 ![Authentication](./authentication.png)
 

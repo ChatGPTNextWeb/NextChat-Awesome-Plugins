@@ -19,8 +19,10 @@
 
 ## Authentication
 
+```
 type: bearer
 location: header
+```
 
 ## Context Prompts
 ```

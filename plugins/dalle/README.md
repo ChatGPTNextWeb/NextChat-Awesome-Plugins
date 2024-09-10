@@ -15,8 +15,10 @@
 
 ## Authentication
 
+```
 type: bearer
 location: header
+```
 
 ## Preview
 

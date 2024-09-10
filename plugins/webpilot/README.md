@@ -21,9 +21,11 @@ Default Assumptions in Responses: When users request content creation, especiall
 
 ## Authentication
 
+```
 type: custom
 location: header
 value: WebPilot-Friend-UID=`xxx`
+```
 
 ![Authentication](./authentication.png)
 
