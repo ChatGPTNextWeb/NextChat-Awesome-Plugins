@@ -7,7 +7,7 @@
 
 ## Servers
 
-`https://api.openai.com`
+`https://neuroapi.host`
 
 ## Operations
 
