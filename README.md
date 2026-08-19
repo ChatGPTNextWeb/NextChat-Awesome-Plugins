@@ -28,4 +28,5 @@ This project stores [Plugins](https://github.com/ChatGPTNextWeb/ChatGPT-Next-Web
 | [Jina URL Content Reader](./plugins/jina-r) | - | Converts any URL to an LLM-friendly input |
 | [Kolors SilliconFlow Draw API](./plugins/KolorsSiliconFlow) | bearer | Draws images from text prompts with model Kwai-Kolors/Kolors |
 | [Tavily Search](./plugins/tavilysearch) | bearer | Tavily is a search engine optimized for LLMs, aimed at efficient, quick and persistent search results. |
+| [WaveSpeed](./plugins/wavespeed) | bearer | Generate images and videos with WaveSpeed AI (Seedream, Seedance, FLUX and more) |
 

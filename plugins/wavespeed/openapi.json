@@ -1,0 +1,149 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "WaveSpeed",
+    "description": "Generate images and videos with WaveSpeed AI (wavespeed.ai). Submit a prompt to a model, then poll the prediction result until it is completed and return the output URL.",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://api.wavespeed.ai"
+    }
+  ],
+  "security": [
+    {
+      "bearerAuth": []
+    }
+  ],
+  "paths": {
+    "/api/v3/{model_id}": {
+      "post": {
+        "operationId": "WaveSpeedSubmit",
+        "x-openai-isConsequential": false,
+        "summary": "Submit an image or video generation task to a WaveSpeed AI model. Returns a prediction id immediately; the task runs asynchronously. After calling this, poll WaveSpeedGetResult with the returned data.id until data.status is `completed`, then present data.outputs[0] (the image/video URL) to the user, e.g. as ![image](url).",
+        "parameters": [
+          {
+            "name": "model_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "The WaveSpeed model id, in `owner/name` format and may contain slashes. Unless the user asks for a specific model, use `bytedance/seedream-v5.0-pro` for images. Other examples: `bytedance/seedance-v1-pro-t2v-720p` (text-to-video), `wavespeed-ai/flux-dev`. The full catalog is at https://wavespeed.ai/models."
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["prompt"],
+                "properties": {
+                  "prompt": {
+                    "type": "string",
+                    "description": "Text description of the desired image or video."
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Task accepted. Remember `data.id` and poll WaveSpeedGetResult with it.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PredictionEnvelope"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v3/predictions/{id}/result": {
+      "get": {
+        "operationId": "WaveSpeedGetResult",
+        "x-openai-isConsequential": false,
+        "summary": "Get the result of a previously submitted WaveSpeed prediction. If data.status is `created` or `processing`, wait a moment and call this operation again (typically a few seconds for images, longer for videos). When data.status is `completed`, data.outputs[0] contains the generated image/video URL — show it to the user, e.g. as ![image](url). If data.status is `failed`, report data.error.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "The prediction id returned by WaveSpeedSubmit (data.id)."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Current prediction state.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PredictionEnvelope"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "description": "WaveSpeed API key from the wavespeed.ai dashboard."
+      }
+    },
+    "schemas": {
+      "PredictionEnvelope": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "integer",
+            "description": "Platform status code; 200 on success."
+          },
+          "message": {
+            "type": "string",
+            "description": "Human-readable status or error message."
+          },
+          "data": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "description": "Prediction id, used to poll the result."
+              },
+              "model": {
+                "type": "string",
+                "description": "The model that ran this prediction."
+              },
+              "status": {
+                "type": "string",
+                "description": "One of `created`, `processing`, `completed`, `failed`, `cancelled`, `timeout`."
+              },
+              "outputs": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "description": "Generated image/video URLs; present when status is `completed`."
+              },
+              "error": {
+                "type": "string",
+                "description": "Error detail when status is `failed`."
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
